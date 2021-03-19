@@ -1,0 +1,10 @@
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\bin\Debug\Lab 2(Main).exe.config
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\bin\Debug\Lab 2(Main).exe
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\bin\Debug\Lab 2(Main).pdb
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab 2(Main).csprojAssemblyReference.cache
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab_2_Main_.Properties.Resources.resources
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab 2(Main).csproj.GenerateResource.cache
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab 2(Main).csproj.CoreCompileInputs.cache
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab 2(Main).exe
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab 2(Main).pdb
+C:\Програмирование(Дина Сергеевна)\Lab 2(Main)\obj\Debug\Lab_2_Main_.MainForm.resources

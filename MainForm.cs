@@ -16,7 +16,7 @@ namespace Lab_2_Main_
 		public MainForm()
 		{
 			InitializeComponent();
-			historyBox.Text = File.ReadAllText("History");
+			historyBox.Items.AddRange(File.ReadAllLines("History"));
 			zakladki.Items.AddRange(File.ReadAllLines("Zakladki"));
 		}
 		private int kolPages = 0;//для наследования
@@ -45,8 +45,8 @@ namespace Lab_2_Main_
 			if(!String.IsNullOrEmpty(PoiskovayaStroka.Text))
 			{
 				((WebBrowser)Page.SelectedTab.Controls[0]).Navigate(PoiskovayaStroka.Text);
-				File.WriteAllText("History", PoiskovayaStroka.Text+"\n");
-				historyBox.Text = File.ReadAllText("History");
+				File.AppendAllText("History", "https://" + PoiskovayaStroka.Text + "\n");
+				historyBox.Items.Add( PoiskovayaStroka.Text + "\n");
 			}
 		}
 
@@ -99,8 +99,9 @@ namespace Lab_2_Main_
 			if (e.KeyCode == Keys.Enter)
 			{
 				((WebBrowser)Page.SelectedTab.Controls[0]).Navigate(PoiskovayaStroka.Text);
-				File.AppendAllText("History", PoiskovayaStroka.Text + "\n");
-				historyBox.Text = File.ReadAllText("History");
+				File.AppendAllText("History",   PoiskovayaStroka.Text + "\n");
+				historyBox.Items.Add( PoiskovayaStroka.Text + "\n");
+
 			}
 		}
 
@@ -132,26 +133,58 @@ namespace Lab_2_Main_
 
 		private void toolStripButton1_Click(object sender, EventArgs e)
 		{
-		
+			((WebBrowser)Page.SelectedTab.Controls[0]).ShowSaveAsDialog();
 		}
-
+		ListBox historyBox = new ListBox();
 		private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			List<string> fileContent = new List<string>();
-			fileContent.AddRange(File.ReadAllLines("Zakladki"));
-			fileContent.RemoveAt(zakladki.SelectedIndex);
-			File.WriteAllLines("Zakladki", fileContent);
-			zakladki.Items.RemoveAt(zakladki.SelectedIndex);
+			if (Page.SelectedTab.Text=="Закладки")
+			{
+				fileContent.AddRange(File.ReadAllLines("Zakladki"));
+				fileContent.RemoveAt(zakladki.SelectedIndex);
+				File.WriteAllLines("Zakladki", fileContent);
+				zakladki.Items.RemoveAt(zakladki.SelectedIndex);
+			} else
+				{
+				fileContent.AddRange(File.ReadAllLines("History"));
+				fileContent.RemoveAt(historyBox.SelectedIndex);
+				File.WriteAllLines("History", fileContent);
+				historyBox.Items.RemoveAt(historyBox.SelectedIndex );
+				}
+			
 		}
-		RichTextBox historyBox = new RichTextBox();
 		private void историяToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Page.TabPages.Add("История");
 			Page.SelectTab(kolPages);
 			Page.SelectedTab.Controls.Add(historyBox);
 			historyBox.Dock = DockStyle.Fill;
-
 			kolPages++;
+		}
+
+		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			
+			
+		}
+
+		private void сохранитьСтраницуToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+		}
+		private void historyBox_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			PoiskovayaStroka.Text = historyBox.SelectedItem.ToString();
+			((WebBrowser)Page.SelectedTab.Controls[0]).Navigate(PoiskovayaStroka.Text);
+			File.AppendAllText("History", "https://" + PoiskovayaStroka.Text + "\n");
+			historyBox.Items.Add(PoiskovayaStroka.Text + "\n");
+		}
+
+		private void toolStripButton2_Click(object sender, EventArgs e)
+		{
+			string s = historyBox.SelectedItem.ToString();
+			((WebBrowser)Page.SelectedTab.Controls[0]).Navigate(s);
 		}
 	}
 }

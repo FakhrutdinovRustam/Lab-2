@@ -48,6 +48,7 @@
 			this.Page = new System.Windows.Forms.TabControl();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1.SuspendLayout();
 			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -67,7 +68,8 @@
             this.DeleteVkladka,
             this.AddBookmark,
             this.toolStripButton1,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripButton2});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(1069, 27);
@@ -197,14 +199,14 @@
 			// закладкиToolStripMenuItem
 			// 
 			this.закладкиToolStripMenuItem.Name = "закладкиToolStripMenuItem";
-			this.закладкиToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+			this.закладкиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
 			this.закладкиToolStripMenuItem.Text = "Закладки";
 			this.закладкиToolStripMenuItem.Click += new System.EventHandler(this.закладкиToolStripMenuItem_Click);
 			// 
 			// историяToolStripMenuItem
 			// 
 			this.историяToolStripMenuItem.Name = "историяToolStripMenuItem";
-			this.историяToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+			this.историяToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
 			this.историяToolStripMenuItem.Text = "История";
 			this.историяToolStripMenuItem.Click += new System.EventHandler(this.историяToolStripMenuItem_Click);
 			// 
@@ -233,6 +235,16 @@
 			this.удалитьToolStripMenuItem.Text = "Удалить";
 			this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
 			// 
+			// toolStripButton2
+			// 
+			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton2.Name = "toolStripButton2";
+			this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
+			this.toolStripButton2.Text = "toolStripButton2";
+			this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,6 +255,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "From Russia with Love";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
@@ -272,6 +285,7 @@
 		private System.Windows.Forms.ToolStripButton toolStripButton1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+		private System.Windows.Forms.ToolStripButton toolStripButton2;
 	}
 }
 
